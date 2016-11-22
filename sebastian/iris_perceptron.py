@@ -10,9 +10,10 @@ df = pd.read_csv('https://archive.ics.uci.edu/ml/'
                  'machine-learning-databases/iris/iris.data',
                  header=None)
 
-y = df.iloc[0:100, 4].values
-y = np.where(y == 'Iris-setosa', -1, 1)
-X = df.iloc[0:100, [0, 2]].values
+y = df.iloc[50:150, 4].values
+# setosa,virginica,versicolor
+y = np.where(y == 'Iris-versicolor', -1, 1)
+X = df.iloc[50:150, [0, 2]].values
 
 # plt.scatter(X[:50, 0], X[:50, 1], color='red', marker='o', label='setosa')
 # plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='x', label='versicolor')
@@ -22,7 +23,7 @@ X = df.iloc[0:100, [0, 2]].values
 # plt.legend(loc='upper left')
 # plt.show()
 
-ppn = Perceptron(eta=0.1, n_iter=10)
+ppn = Perceptron(eta=0.1, n_iter=100,progress_bar=False)
 ppn.fit(X, y)
 # plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
 # plt.xlabel('Epochs')
@@ -57,7 +58,8 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
         plt.scatter(x=X[y == cl, 0], y=X[y == cl, 1], alpha=0.8, c=cmap(idx),
                     marker=markers[idx], label=cl)
 
-plot_decision_regions(X,y,classifier=ppn)
+
+plot_decision_regions(X, y, classifier=ppn)
 plt.xlabel('petal length [cm]')
 plt.ylabel('sepal length [cm]')
 plt.legend(loc='upper left')
