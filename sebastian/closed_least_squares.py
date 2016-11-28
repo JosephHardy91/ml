@@ -13,19 +13,21 @@ class Closed_Least_Squares(object):
         return self
 
 
-z = lambda x: np.e * x[0] + np.pi * x[1]
-w = lambda x: np.e * x[0] + np.pi * x[1]
+# z = lambda x: np.e * x[0] + np.pi * x[1]
+# w = lambda x: np.e * x[0] + np.pi * x[1]
+#
+# X = np.random.rand(10, 2)
+# y = z(X.T)
+# y2 = w(X.T)
+#
+# cls = Closed_Least_Squares()
+# cls.fit(X, y)
+#
+# cls2 = Closed_Least_Squares()
+# cls2.fit(X, y2)
+#
+# import matplotlib.pyplot as plt
+# plt.scatter(X,cls.weights*X)
+# plt.show()
 
-X = np.random.rand(10, 2)
-y = z(X.T)
-y2 = w(X.T)
-
-cls = Closed_Least_Squares()
-cls.fit(X, y)
-
-cls2 = Closed_Least_Squares()
-cls2.fit(X, y2)
-
-import matplotlib.pyplot as plt
-plt.scatter(X,cls.weights*X)
-plt.show()
+X=[]
